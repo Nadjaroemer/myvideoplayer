@@ -17,14 +17,17 @@
 		<div class="controls">
 			<div class="rangeFinder">
 				<div class="barCnt">
-					<input type="range" min=0 max=100 step=0.01 value=0 id="range2">
+					<input type="range" min=0 max=100 step=0.01 value=0 id="range2" class="colorized">
 					<p class="preBar" style="width: 0%"></p>
 				</div>
 			</div>
 			<button class="playButton"><i class="fa fa-play"></i></button>
 			<div class="volumeControls">
 				<button class="volumeToggle"><i class="fa fa-volume-up"></i></button>
-				<input class="volumeSlider" type="range" step="0.01" min="0" max="1" value="1">
+				<div class="volumeRange">
+					<input class="volumeSlider" type="range" step="1" min="0" max="100" value="50">
+					<p class="volumePreBar" style="width: 0%"></p>
+				</div>
 			</div>
 		</div>
 	</div>

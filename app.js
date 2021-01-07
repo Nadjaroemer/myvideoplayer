@@ -43,18 +43,17 @@ volumeToggle.addEventListener("click", function(event) {
 	} else {
 		video.volume = currentVolume;
 		volumeToggle.innerHTML = `<i class="fa fa-volume-up"></i>`;
-		volumeSlider.value = currentVolume;
+		volumeSlider.value = currentVolume * 100;
 	}
 });
 
 volumeSlider.addEventListener("change", function(event) {
-	currentVolume = volumeSlider.value;
+	currentVolume = volumeSlider.value / 100;
 	video.volume = currentVolume;
 });
 
 // -- RangeFinder --
 function rangeColor(input) {
-  input.className = input.className.length ? (input.className + ' colorized') : 'colorized';
 	preBar.style.width = input.value + '%';
 
   input.addEventListener('input', function() {
@@ -65,3 +64,17 @@ function rangeColor(input) {
 }
 
 rangeColor(document.getElementById('range2'));
+
+// -- Volume RangeFinder --
+var volumePreBar = document.querySelector(".volumePreBar");
+function volumeRangeColor(input) {
+	volumePreBar.style.width = input.value + "%";
+
+	input.addEventListener("input", function() {
+		volumePreBar.style.width = input.value + "%";
+	});
+
+	volumePreBar.style.width = input.value + "%";
+}
+
+volumeRangeColor(document.querySelector(".volumeSlider"));
