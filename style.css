@@ -40,6 +40,8 @@
 	grid-row-end: 3;
 	grid-column-start: 2;
 	grid-column-end: 3;
+	display: flex;
+	align-items: baseline;
 }
 
 .controls {
@@ -47,7 +49,7 @@
 	transition: opacity 100ms ease;
 	display: grid;
 	grid-template-rows: 1fr 5fr;
-	grid-template-columns: repeat(auto, 1fr);
+	grid-template-columns: 1fr 12fr auto;
 }
 
 #myVideoPlayer:hover .controls {
@@ -58,13 +60,14 @@
 	grid-row-start: 1;
 	grid-row-end: 2;
 	grid-column-start: 1;
-	grid-column-end: 3;
+	grid-column-end: 4;
 }
 
-.barCnt {
+.barCnt, .volumeRange {
   position: relative;
   height: 10px;
-  padding: 5px 0px;
+	padding: 5px 0px;
+	width: 100%;
 }
 
 .barCnt .preBar {
@@ -141,4 +144,66 @@ input[type=range].colorized::-moz-focus-outer {
 .rangeFinder:hover input[type=range].colorized::-webkit-slider-thumb {
 	width: 16px;
 	height: 16px;
+}
+
+/* ============================== */
+
+.volumeRange .volumePreBar {
+	position: absolute;
+  background-color: hsl(0, 0%, 97%);
+  height: 5px;
+  line-height: 5px;
+  z-index: 200;
+  padding: 0px;
+  margin: 0px;
+  pointer-events: none;
+}
+
+.volumeSlider {
+	-webkit-appearance: none;
+  width: 100%;
+  height: 5px;
+  position: absolute;
+  padding: 0px;
+  margin: 0px;
+  cursor: pointer;
+  z-index: 100;
+  left: 0px;
+}
+
+.volumeSlider::-webkit-slider-runnable-track {
+  height: 5px;
+  background: #aaaaaa;
+  border: none;
+}
+
+.volumeSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 16px;
+	width: 16px;
+  border-radius: 50%;
+  background: hsl(0, 0%, 97%);
+  margin-top: -4px;
+  z-index: 400;
+}
+
+.volumeSlider::-webkit-slider-runnable-track {
+  background: #aaaaaa;
+}
+
+.volumeSlider::-moz-range-track {
+  width: 100%;
+  height: 5px;
+  background: #aaaaaa;
+  border: none;
+}
+
+.volumeSlider::-moz-range-thumb {
+  border: none;
+  height: 16px;
+	width: 16px;
+  border-radius: 50%;
+  background: hsl(0, 0%, 97%);
+  z-index: 400;
 }
